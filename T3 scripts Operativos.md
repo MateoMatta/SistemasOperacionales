@@ -21,9 +21,7 @@ Con el comando: ```get-service | Export-csv servicios.csv -Delimiter  ';'```
 El parámetro ```-NoClobber``` evita la sobreescritura, mientras que ```-Confirm``` arroja el diálogo de pregunta acerca de sobrescribir o no.
 
 5. Windows emplea configuraciones regionales, lo que incluye el separador de listas. En Windows en inglés, el separador de listas es la coma (,). Cómo se le dice a Export-CSV que emplee el separador del sistema en lugar de la coma?*
-  
-  
-  NO SE
+  PENDIENTEEEEEEEEEEEE 
 *6. Identifique un cmdlet que permita generar un número aleatorio.*
 
 _Respuesta:_ con el cmdlet  ```get-random```
@@ -49,10 +47,15 @@ _Respuesta:_ con el cmdlet  ```get-hotfix```
 
 *11. Empleando el cmdlet de la pregunta 10, muestre una lista de parches instalados. Luego extienda la expresión para ordenar la lista por fecha de instalación, y muestre en pantalla únicamente la fecha de instalación, el usuario que instaló el parche, y el ID del parche. Recuerde examinar los nombres de las propiedades.*
 
-_Respuesta:_
+_Respuesta:_ con el comando ``` Get-HotFix  | Sort-Object -Property InstalledOn | Format-Table -Property InstalledOn,installedby , hotfixid```
+
+
 
 *12. Complemente la solución a la pregunta 11, para que el sistema ordene los resultados por la descripción del parche, e incluya en el listado la descripción, el ID del parche, y la fecha de instalación. Escriba los resultados a un archivo HTML.*
 
+_Respuesta:_ con el comando ```Get-HotFix  | Export-Clixml |Sort-Object -Property description | Format-Table -Property description,hotfixid , installedon```
+
 *13. Muestre una lista de las 50 entradas más nuevas del log de eventos System. Ordene la lista de modo que las entradas más antiguas aparezcan primero; las entradas producidas al mismo tiempo deben ordenarse por número índice. Muestre el número índice, la hora y la fuente para cada entrada. Escriba esta información en un archivo de texto plano.*
 
+_Respuesta:_ ```Get-EventLog -LogName System -newest 50 | Sort-Object  -Property id -Descending |  Format-Table -Property id, date, source | out-file -filepath .\logs.txt```
 
