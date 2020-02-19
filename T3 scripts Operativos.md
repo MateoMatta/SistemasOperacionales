@@ -2,11 +2,11 @@
 Con el comando ```diff  (get-content texto.txt) (get-content texto2.txt)``` se obtiene
 _Resultado:_
 
-InputObject        SideIndicator
------------        -------------
-Pruebita de taller =>           
+*InputObject        SideIndicator*
+*-----------        -------------*
+*Pruebita de taller =>         *  
                    =>           
-La prueba          <=      
+*La prueba          <=  *    
 
 *2. Qué ocurre si se ejecuta:
 *get-service | export-csv servicios.csv | out-file
