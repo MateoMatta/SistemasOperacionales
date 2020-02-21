@@ -20,8 +20,12 @@ Con el comando: ```get-service | Export-csv servicios.csv -Delimiter  ';'```
 *4. Export-cliXML y Export-CSV modifican el sistema, porque pueden crear y sobreescribir archivos. Existe algún parámetro que evite la sobreescritura de un archivo existente? Existe algún parámetro que permita que el comando pregunte antes de sobresscribir un archivo?*
 El parámetro ```-NoClobber``` evita la sobreescritura, mientras que ```-Confirm``` arroja el diálogo de pregunta acerca de sobrescribir o no.
 
-5. Windows emplea configuraciones regionales, lo que incluye el separador de listas. En Windows en inglés, el separador de listas es la coma (,). Cómo se le dice a Export-CSV que emplee el separador del sistema en lugar de la coma?*
-  PENDIENTEEEEEEEEEEEE 
+*5. Windows emplea configuraciones regionales, lo que incluye el separador de listas. En Windows en inglés, el separador de listas es la coma (,). Cómo se le dice a Export-CSV que emplee el separador del sistema en lugar de la coma?*
+  _Resultado:_
+  
+  ```Get-Process | Export-Csv csvSistema.csv -Delimiter (Get-Culture).TextInfo.ListSeparator```
+  
+  
 *6. Identifique un cmdlet que permita generar un número aleatorio.*
 
 _Respuesta:_ con el cmdlet  ```get-random```
@@ -57,5 +61,5 @@ _Respuesta:_ con el comando ```Get-HotFix  | Export-Clixml |Sort-Object -Propert
 
 *13. Muestre una lista de las 50 entradas más nuevas del log de eventos System. Ordene la lista de modo que las entradas más antiguas aparezcan primero; las entradas producidas al mismo tiempo deben ordenarse por número índice. Muestre el número índice, la hora y la fuente para cada entrada. Escriba esta información en un archivo de texto plano.*
 
-_Respuesta:_ ```Get-EventLog -LogName System -newest 50 | Sort-Object  -Property id -Descending |  Format-Table -Property id, date, source | out-file -filepath .\logs.txt```
+_Respuesta:_ ```Get-EventLog -LogName System -newest 50 |  Sort-Object -Property TimeGenerated | Sort-Object  -Property id -Descending |  Select-Object -Property index,TimeGenerated,source | Out-File -filepath .\logs.txt```
 
