@@ -275,27 +275,57 @@ VersionInfo : File:             C:\Windows\d3bea6abc8a82889972f5c3f7eb56d51.exe
 
 7. 
 Comando
+*Resultado dado en el PC de mi hermano, pues aparece un error por no tener Windows 8 superior:
 ```
-PS C:\Users\MateoML> Import-Module NetAdapter
-*Resultado erroneo por no tener Windows 8 o superior (Tengo Windows7)*
-Import-Module : The specified module 'NetAdapter' was not loaded because no valid module file was found in any module directory.
+PS C:\Users\oscar> Import-Module NetAdapter
 
-PS C:\Users\MateoML> Get-NetAdapter | where -filter {$_.Virtual -eq $false} | Format-List
+Ningún resultado!.
+
+PS C:\Users\oscar> Get-NetAdapter | where -filter {$_.Virtual -eq $false} | Format-List
 ```
 
-Resultado
-*Resultado erróneo*: Get-NetAdapter : The term 'Get-NetAdapter' is not recognized as the name of a cmdlet, function, script file, or operable program.
+*Resultado  dado en el PC de mi hermano, pues aparece un error por no tener Windows 8 superior:
+
+Name                       : Ethernet
+InterfaceDescription       : Realtek PCIe GbE Family Controller
+InterfaceIndex             : 6
+MacAddress                 : 74-D4-35-99-AD-9D
+MediaType                  : 802.3
+PhysicalMediaType          : 802.3
+InterfaceOperationalStatus : Up
+AdminStatus                : Up
+LinkSpeed(Mbps)            : 100
+MediaConnectionState       : Connected
+ConnectorPresent           : True
+DriverInformation          : Driver Date 2015-04-10 Version 9.1.410.2015 NDIS 6.40
 
 8.  
 Comando
 ```
-PS C:\Users\MateoML>Import-Module DnsClient
-
-PS C:\Users\MateoML> Get-DnsClientCache | where -filter {$_.Type -eq (28) -or $_.Type -eq (1)} | Format-Table
+PS C:\Users\oscar>Import-Module DnsClient
 ```
-
+Resultado: Ningun resultado!
+Comando
+```
+PS C:\Users\oscar> Get-DnsClientCache | where -filter {$.Type -eq (28) -or $.Type -eq (1)} | Format-Table
+```
 Resultado
 
+Entry                     RecordName                Record Status    Section TimeTo Data   Data                                                                          
+                                                    Type                     Live   Length                                                                               
+-----                     ----------                ------ ------    ------- ------ ------ ----                                                                          
+safebrowsing.googleapi... safebrowsing.googleapi... A      Success   Answer      64      4 216.58.222.234                                                             
+www.gstatic.com           www.gstatic.com           A      Success   Answer      63      4 172.217.172.3                                                                 
+ogs.google.com            www3.l.google.com         A      Success   Answer      68      4 172.217.30.206                                                                
+android.clients.google... android.l.google.com      A      Success   Answer      64      4 216.58.222.238                                                                
+android.clients.google... android.l.google.com      A      Success   Answer      64      4 172.217.28.110                                                                
+android.clients.google... android.l.google.com      A      Success   Answer      64      4 172.217.30.206                                                                
+android.clients.google... android.l.google.com      A      Success   Answer      64      4 172.217.172.14                                                                
+android.clients.google... android.l.google.com      A      Success   Answer      64      4 216.58.222.206                                                                
+r4---sn-cvb7ln7l.googl... r4.sn-cvb7ln7l.googlev... A      Success   Answer     192      4 173.194.136.186                                                               
+ota.nvidia.com            cs801.adn.phicdn.net      A      Success   Answer    1622      4 152.195.55.219                                                                
+play.google.com           play.google.com           A      Success   Answer      64      4 216.58.222.238                                                                
+oauthaccountmanager.go... oauthaccountmanager.go... A      Success   Answer      10      4 172.217.172.10
 
 9.
 Comando
