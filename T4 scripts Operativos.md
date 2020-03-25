@@ -1,5 +1,4 @@
 1.
-
 Comando
 ```
 PS C:\Users\MateoML> Get-Process | Select-Object Name, ID, Responding | Format-Table -AutoSize
@@ -24,30 +23,6 @@ EpicGamesLauncher    2764       True
 esrv_svc             5836       True
 explorer             1964       True
 GoogleCrashHandler   2400       True
-GoogleCrashHandler64 2496       True
-hkcmd                2752       True
-Idle                    0       True
-igfxpers             2800       True
-InputMapper          2484       True
-javaw                6872       True
-jucheck              7136       True
-jusched               508       True
-lsass                 656       True
-lsm                   664       True
-mediasrv             4400       True
-msedge                480       True
-msedge               1224       True
-msedge               1316       True
-msedge               1588       True
-msedge               2096       True
-msedge               4072       True
-msedge               5592       True
-msedge               6372       True
-msedge               6488       True
-msedge               7180       True
-msedge               7288       True
-msedge               7296       True
-msedge               7712       True
 msedge               7800       True
 msedge               7900       True
 msedge               8120       True
@@ -65,20 +40,6 @@ obexsrv              4348       True
 OfficeClickToRun     1136       True
 ONENOTE              5652       True
 ONENOTEM              888       True
-openvpnserv          2176       True
-powershell_ise       5052       True
-RdrCEF               3964       True
-RdrCEF               4520       True
-RdrCEF               8452       True
-rundll32             2360       True
-rundll32             2384       True
-SearchIndexer        3724       True
-services              616       True
-smss                  292       True
-SnippingTool         3208       True
-spoolsv              1728       True
-stacsv64              492       True
-sttray64             2716       True
 svchost               136       True
 svchost               452       True
 svchost               788       True
@@ -108,9 +69,7 @@ WUDFHost             4204       True
 XBoxStat             2328       True
 
 2. 
-
 Comando
-
 ```
 PS C:\Users\MateoML> Get-Process | Format-Table Name, Id, @{Name='VM (MB)';Expression={$_.VM / 1MB -as [int]}}, @{Name='PM (MB)'; Expression={$_.PM / 1MB -as [int]}}
 ```
@@ -173,34 +132,7 @@ NvTelemetryContainer 2148      78       7
 obexsrv              4348      59       3
 OfficeClickToRun     1136     183      34
 ONENOTE              5652     580     111
-ONENOTEM              888      74       4
-openvpnserv          2176      42       3
-powershell_ise       5052     955     145
-RdrCEF               3964     313      32
-RdrCEF               4520     315      56
-RdrCEF               8452     318      55
-rundll32             2360     120       5
-rundll32             2384      78       3
-SearchIndexer        3724     285      56
-services              616      38       7
-smss                  292       4       1
-SnippingTool         3208      99       6
-spoolsv              1728     105       9
-stacsv64              492      74      13
-sttray64             2716     105      10
-svchost               136     375     219
-svchost               452     161      34
-svchost               788      58       7
-svchost               904      42       6
-svchost               992     109      26
-svchost              1112      74      11
-svchost              1336     215      34
-svchost              1756      86      17
-svchost              2236      78       6
-svchost              2288     138       6
-svchost              3748      50       3
-svchost              4108      35       3
-svchost              5712     291      82
+ONENOTEM              888      74       42
 System                  4       3       0
 taskeng              8220      32       3
 taskhost             1828      82       9
@@ -215,10 +147,8 @@ WmiPrvSE             4876      76      14
 WUDFHost             4204      43       3
 XBoxStat             2328      84       5
 
-3. 
-  
-Comando 
- 
+3.   
+Comando  
 ```
 PS C:\Users\MateoML> Get-EventLog -List | Format-Table @{Name='LogName';Expression={$_.LogDisplayName}}, @{Name='Periodo de Retencion';Expression={$_.minimumRetentionDays}}
 ```
@@ -240,7 +170,6 @@ USER_ESRV_SVC_QUEENCREEK                                                 7
 Windows PowerShell                                                       0
 
 4.
-
 Comando
  ```   
 PS C:\Users\MateoML> Get-Service | Sort-by Status | Format-List -GroupBy status
@@ -281,8 +210,7 @@ CanShutdown         : False
 CanStop             : False
 ServiceType         : Win32ShareProcess
 
-5.
-   
+5.   
 Comando
 ``` 
 PS C:\Users\MateoML> ls -Path C:\ | Format-Wide -Column 4
@@ -306,9 +234,7 @@ msdia80.dll                       vcredist.bmp                      VC_RED.cab  
 
 
 6. 
-
 Comando
-
 ```
 PS C:\Users\MateoML> Get-ChildItem -Path C:\Windows | where -filter {$_.Name -like "*.exe"} | Format-List -Property Name, VersionInfo, @{Name='Size';Expression={$_.length}}
 ```
@@ -348,24 +274,20 @@ VersionInfo : File:             C:\Windows\d3bea6abc8a82889972f5c3f7eb56d51.exe
               
 
 7. 
-
 Comando
-
 ```
 PS C:\Users\MateoML> Import-Module NetAdapter
-*Resultado erroneo*
+*Resultado erroneo por no tener Windows 8 o superior (Tengo Windows7)*
 Import-Module : The specified module 'NetAdapter' was not loaded because no valid module file was found in any module directory.
 
 PS C:\Users\MateoML> Get-NetAdapter | where -filter {$_.Virtual -eq $false} | Format-List
 ```
 
 Resultado
-
+*Resultado erróneo*: Get-NetAdapter : The term 'Get-NetAdapter' is not recognized as the name of a cmdlet, function, script file, or operable program.
 
 8.  
-
 Comando
-
 ```
 PS C:\Users\MateoML>Import-Module DnsClient
 
@@ -376,7 +298,6 @@ Resultado
 
 
 9.
-
 Comando
 
 ```
@@ -385,26 +306,94 @@ PS C:\Users\MateoML> Get-ChildItem -Path C:\Windows\System32 | where -filter {$_
 
 Resultado
 
+    Directory: C:\Windows\System32
+
+
+Mode                LastWriteTime         Length Name                                                                                
+----                -------------         ------ ----                                                                                
+-a----     14/09/2019  01:12 p.m.        5904856 GfxUI.exe                                                                           
+-a----     13/07/2009  08:39 p.m.        6676480 mspaint.exe                                                                         
+-a----     02/02/2015  10:34 p.m.        5554104 ntoskrnl.exe                                                                        
+
 
 10. 
 
 Comando
+```
+PS C:\Users\MateoML> Get-HotFix | where -filter {$_.description -like "*security*"} | Format-List
+```
 
-```
-Get-HotFix | where -filter {$_.description -like "*security*"} | Format-List
-```
+Resultado:
+
+  Description         : Security Update
+FixComments         : 
+HotFixID            : KB3033929
+InstallDate         : 
+InstalledBy         : MateoML-PC\MateoML
+InstalledOn         : 19/02/2020 12:00:00 a.m.
+Name                : 
+ServicePackInEffect : 
+Status              : 
 
 11.
 
 Comando
 ```
-Get-HotFix | where -filter {$_.installedBy -like "*SYSTEM*"} |Format-List
+PS C:\Users\MateoML> Get-HotFix | where -filter {$_.installedBy -like "*SYSTEM*"} |Format-List
 ```
+Resultado:
+Description         : Security Update
+FixComments         : 
+HotFixID            : KB3033929
+InstallDate         : 
+InstalledBy         : MateoML-PC\MateoML
+InstalledOn         : 19/02/2020 12:00:00 a.m.
+Name                : 
+ServicePackInEffect : 
+Status              : 
+
+
+
+
+PS C:\Users\MateoML> 
+PS C:\Users\MateoML> 
+PS C:\Users\MateoML> Get-HotFix | where -filter {$_.installedBy -like "*SYSTEM*"} |Format-List
+
+
+Description         : Update
+FixComments         : 
+HotFixID            : KB2685811
+InstallDate         : 
+InstalledBy         : NT AUTHORITY\SYSTEM
+InstalledOn         : 23/02/2017 12:00:00 a.m.
+Name                : 
+ServicePackInEffect : 
+Status              : 
+
+
 
 12.
 
 Comando
+```
+PS C:\Users\MateoML> Get-Process | where -filter {$_.Name -eq "Conhost" -or $_.Name -eq "Svchost"} | Format-List
+```
+Resultado:
 
-```
-Get-Process | where -filter {$_.Name -eq "Conhost" -or $_.Name -eq "Svchost"} | Format-List
-```
+Id      : 2660
+Handles : 35
+CPU     : 0,0312002
+SI      : 1
+Name    : conhost
+
+Id      : 136
+Handles : 938
+CPU     : 
+SI      : 0
+Name    : svchost
+
+Id      : 452
+Handles : 1508
+CPU     : 
+SI      : 0
+Name    : svchost
