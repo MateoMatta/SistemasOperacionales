@@ -110,8 +110,9 @@ FirewallProduct                     {}                   {displayName, instanceG
    ```
    PS C:\Users\MateoML> Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct | Select-Object DisplayName
    ```
-```
+   
    Resultado
+```   
 DisplayName     
 -----------     
 Windows Defender
