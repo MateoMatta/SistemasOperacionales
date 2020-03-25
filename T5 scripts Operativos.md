@@ -3,7 +3,8 @@
    ```
    PS C:\Users\MateoML> Get-CimInstance win32_networkadapterconfiguration | Select-Object IP
    ```   
-   Resultado
+Resultado
+   
 Description             : WAN Miniport (IP)
 Index                   : 8
 IPAddress               : 
@@ -105,20 +106,20 @@ AntiVirusProduct                    {}                   {displayName, instanceG
 FirewallProduct                     {}                   {displayName, instanceGuid, pathToSignedProductExe, pathToSignedReporting
    
 5. 
-   Sin antivirus   
+Con el Antispyware Windows Defender  
    Comando
    ```
    PS C:\Users\MateoML> Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct | Select-Object DisplayName
    ```
-   
-   Resultado
+Resultado
+
 ```   
 DisplayName     
 -----------     
 Windows Defender
 ```
-------------------------------------------------------------------------------------------------------------------------------
-   Con antivirus:  
+----------------------------------------------------------------------------------------------------------------
+Sin antivirus alguno instalado  
    Comando
    ```
    PS C:\Users\MateoML> Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct | Select-Object DisplayName
